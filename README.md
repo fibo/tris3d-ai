@@ -2,8 +2,6 @@
 
 > [tris3d][tris3d] surrogate player
 
-**Do not download me, I am a parked package by now**
-
 **Table Of Contents:**
 
 * [Installation](#installation)
