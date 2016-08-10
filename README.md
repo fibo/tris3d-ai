@@ -33,7 +33,7 @@ var stupid = require('tris3d-ai').stupid
 var choice = stupid(choosen)
 ```
 
-### smart
+### smart **TODO**
 
 > Undestands when it can win.
 
@@ -41,7 +41,7 @@ var choice = stupid(choosen)
 var smart = require('tris3d-ai').smart
 ```
 
-### bastard
+### bastard **TODO**
 
 > Tries to block other players.
 
