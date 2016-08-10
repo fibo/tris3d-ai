@@ -1,17 +1,13 @@
 # tris3d-ai
 
-> [tris3d][tris3d] surrogate player
+> [tris3d] surrogate player
 
-**Table Of Contents:**
+[Installation](#installation) |
+[API](#api) |
+[License](#license)
 
-* [Installation](#installation)
-* [Api](#api)
-  - [bastard](#bastard)
-  - [smart](#smart)
-  - [stupid](#stupid)
-* [License](#license)
-
-[![NPM version](https://badge.fury.io/js/tris3d-ai.svg)](http://badge.fury.io/js/tris3d-ai) [![Dependency Status](https://gemnasium.com/fibo/tris3d-ai.svg)](https://gemnasium.com/fibo/tris3d-ai) [![Change log](https://img.shields.io/badge/change-log-blue.svg)](https://github.com/fibo/tris3d-ai/blob/master/CHANGELOG.md)
+[![NPM version](https://badge.fury.io/js/tris3d-ai.svg)](http://badge.fury.io/js/tris3d-ai)
+[![Dependency Status](https://gemnasium.com/fibo/tris3d-ai.svg)](https://gemnasium.com/fibo/tris3d-ai)
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
@@ -20,34 +16,36 @@
 With [npm](https://npmjs.org/) do
 
 ```bash
-$ npm install tris3d-ai
+npm install tris3d-ai --save
 ```
 
 ## API
 
-Every function exported represents a personality of a bot playing [tris3d][tris3d].
+Every function exported represents a personality of a bot playing [tris3d].
 
 ### stupid
 
-> random choices
+> It choses randomly.
 
-```
+```javascript
 var stupid = require('tris3d-ai').stupid
+
+var choice = stupid(choosen)
 ```
 
 ### smart
 
-> undestands its win moves
+> Undestands when it can win.
 
-```
+```javascript
 var smart = require('tris3d-ai').smart
 ```
 
 ### bastard
 
-> tries to block other players moves
+> Tries to block other players.
 
-```
+```javascript
 var bastard = require('tris3d-ai').bastard
 ```
 
@@ -55,5 +53,4 @@ var bastard = require('tris3d-ai').bastard
 
 [MIT](http://g14n.info/mit-license)
 
-[tris3d]: http://g14n.info/tris3d
-
+[tris3d]: http://g14n.info/tris3d "tris3d"

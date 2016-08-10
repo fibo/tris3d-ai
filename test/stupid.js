@@ -1,10 +1,20 @@
-var stupid = require('..').stupid
+var stupid = require('stupid')
 var test = require('tape')
 
 test('stupid', function (t) {
-  t.plan(1)
+  var tries = 120
+  var choosen = [5, 11, 3]
+  var choice
 
-  var moves = []
-  var choice = stupid(moves)
-  t.equal(moves.indexOf(choice), -1, 'returns a choice that is not in previous moves')
+  t.plan(tries)
+
+  for (var i = 0; i < tries; i++) {
+    choice = stupid(choosen)
+
+    t.equal(
+      choosen.indexOf(choice),
+      -1,
+      'returns a choice that is not in previous moves'
+    )
+  }
 })
