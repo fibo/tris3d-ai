@@ -12,8 +12,10 @@
   "scripts": {
     "check-deps": "npm outdated",
     "lint": "standard",
+    "postupdate-deps": "npm test && git commit -am 'updated deps' || git checkout -- package.json",
     "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
-    "test": "NODE_PATH=src tape test/*js | tap-min"
+    "test": "NODE_PATH=src tape test/*js | tap-min",
+    "update-deps": "npm update --save --dev"
   },
   "repository": {
     "type": "git",
