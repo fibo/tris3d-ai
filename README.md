@@ -30,20 +30,22 @@ Every function exported represents a personality of a bot playing [tris3d].
 ```javascript
 var stupid = require('tris3d-ai').stupid
 
-var choice = stupid(choosen)
+var choosen = []
+
+var choice = stupid(choosen) // Some available random choice.
 ```
 
-### smart **TODO**
+### smart
 
-> Undestands when it can win.
+> It undestands when it can win.
 
 ```javascript
 var smart = require('tris3d-ai').smart
 ```
 
-### bastard **TODO**
+### bastard
 
-> Tries to block other players.
+> It tries to win, otherwise it blocks other players.
 
 ```javascript
 var bastard = require('tris3d-ai').bastard
