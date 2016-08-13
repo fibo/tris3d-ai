@@ -41,6 +41,9 @@ var choice = stupid(choosen) // Some available random choice.
 
 ```javascript
 var smart = require('tris3d-ai').smart
+
+// The combination [0, 1, 2] wins since they are alligned.
+var choice = smart([0, 10, 11, 1, 5, 6]) // 2
 ```
 
 ### bastard
@@ -49,6 +52,8 @@ var smart = require('tris3d-ai').smart
 
 ```javascript
 var bastard = require('tris3d-ai').bastard
+
+// TODO
 ```
 
 ## License
