@@ -1,7 +1,7 @@
 {
   "name": "tris3d-ai",
   "description": "tris3d surrogate player",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "homepage": "http://npm.im/tris3d-ai",
   "author": {
     "name": "Gianluca Casati",
