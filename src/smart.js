@@ -15,15 +15,15 @@ function smart (choosen) {
   for (var k = 1; k < myChoices.length; k++) {
     for (var j = 0; j < k; j++) {
       for (var i = 0; i < 27; i++) {
-        // Nothing to do if choice is not available.
-        if (choosen.indexOf[i] > -1) continue
-
         var coords0 = tris3d.coordinatesOfIndex(i)
         var coords1 = tris3d.coordinatesOfIndex(myChoices[j])
         var coords2 = tris3d.coordinatesOfIndex(myChoices[k])
 
-        // Check if it is a winning choice.
-        if (tris3d.isTris(coords0, coords1, coords2)) {
+        // Check if it is a winning choice available.
+        var isAvailable = (choosen.indexOf(i) === -1)
+        var isWinningChoice = tris3d.isTris(coords0, coords1, coords2)
+
+        if (isWinningChoice && isAvailable) {
           return i
         }
       }

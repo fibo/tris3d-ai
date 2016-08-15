@@ -18,6 +18,9 @@ function bastard (choosen) {
   var j
   var k
 
+  var isAvailable
+  var isWinningChoice
+
   for (var byPrevious = choosen.length - 1; byPrevious >= 0; byPrevious -= 3) {
     previousPlayerChoices.push(choosen[byPrevious])
   }
@@ -29,14 +32,14 @@ function bastard (choosen) {
   for (k = 1; k < previousPlayerChoices.length; k++) {
     for (j = 0; j < k; j++) {
       for (i = 0; i < 27; i++) {
-        // Nothing to do if choice is not available.
-        if (choosen.indexOf[i] > -1) continue
-
         coords0 = tris3d.coordinatesOfIndex(i)
         coords1 = tris3d.coordinatesOfIndex(previousPlayerChoices[j])
         coords2 = tris3d.coordinatesOfIndex(previousPlayerChoices[k])
 
-        if (tris3d.isTris(coords0, coords1, coords2)) {
+        isAvailable = (choosen.indexOf(i) === -1)
+        isWinningChoice = tris3d.isTris(coords0, coords1, coords2)
+
+        if (isWinningChoice && isAvailable) {
           if (typeof otherPlayersWinningChoicesCount[i] === 'number') {
             otherPlayersWinningChoicesCount[i]++
           } else {
@@ -50,14 +53,14 @@ function bastard (choosen) {
   for (k = 1; k < nextPlayerChoices.length; k++) {
     for (j = 0; j < k; j++) {
       for (i = 0; i < 27; i++) {
-        // Nothing to do if choice is not available.
-        if (choosen.indexOf[i] > -1) continue
-
         coords0 = tris3d.coordinatesOfIndex(i)
         coords1 = tris3d.coordinatesOfIndex(nextPlayerChoices[j])
         coords2 = tris3d.coordinatesOfIndex(nextPlayerChoices[k])
 
-        if (tris3d.isTris(coords0, coords1, coords2)) {
+        isAvailable = (choosen.indexOf(i) === -1)
+        isWinningChoice = tris3d.isTris(coords0, coords1, coords2)
+
+        if (isWinningChoice && isAvailable) {
           if (typeof otherPlayersWinningChoicesCount[i] === 'number') {
             otherPlayersWinningChoicesCount[i]++
           } else {
