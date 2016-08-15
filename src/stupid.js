@@ -3,6 +3,12 @@ function stupid (choosen) {
     throw new Error('I am a stupid AI, but I understand that there is no choice available.')
   }
 
+  // Get the center, if available...
+  if (choosen.indexOf(13) === -1) {
+    // ...not every time.
+    if (Math.random() < 0.5) return 13
+  }
+
   var choice = Math.floor(Math.random() * 26)
 
   var choiceIsAvailable = (choosen.indexOf(choice) === -1)

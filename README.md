@@ -25,7 +25,7 @@ Every function exported represents a personality of a bot playing [tris3d].
 
 ### stupid
 
-> It choses randomly.
+> It choses randomly. It knows the center of the cube is better.
 
 ```javascript
 var stupid = require('tris3d-ai').stupid
@@ -43,7 +43,7 @@ var choice = stupid(choosen) // Some available random choice.
 var smart = require('tris3d-ai').smart
 
 // The combination [0, 1, 2] wins since they are alligned.
-var choice = smart([0, 10, 11, 1, 5, 6]) // 2
+smart([0, 10, 11, 1, 5, 6]) // 2
 ```
 
 ### bastard
@@ -53,7 +53,8 @@ var choice = smart([0, 10, 11, 1, 5, 6]) // 2
 ```javascript
 var bastard = require('tris3d-ai').bastard
 
-// TODO
+// Here it blocks first player's winning combination.
+bastard([0, 10, 11, 1]) // 2
 ```
 
 ## License
