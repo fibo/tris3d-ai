@@ -6,9 +6,21 @@ function stupid (choosen) {
   // Get the center, if available...
   if (choosen.indexOf(13) === -1) {
     // ...not every time.
-    if (Math.random() < 0.5) return 13
+    if (Math.random() < 0.71) return 13
   }
 
+  // Pick up a corner.
+  var corners = [0, 2, 6, 8, 18, 20, 24, 26]
+  var cornerIndex = Math.floor(Math.random() * 7)
+  var cornerChoice = corners[cornerIndex]
+
+  // Get some corner, if available...
+  if (choosen.indexOf(cornerChoice) === -1) {
+    // ...not every time.
+    if (Math.random() < 0.5) return cornerChoice
+  }
+
+  // Else get some other choice.
   var choice = Math.floor(Math.random() * 26)
 
   var choiceIsAvailable = (choosen.indexOf(choice) === -1)

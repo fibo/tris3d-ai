@@ -25,7 +25,7 @@ Every function exported represents a personality of a bot playing [tris3d].
 
 ### stupid
 
-> It choses randomly. It knows the center of the cube is better.
+> It choses randomly. It knows the center of the cube is the best choice, and that corners are a good choice.
 
 ```javascript
 var stupid = require('tris3d-ai').stupid
