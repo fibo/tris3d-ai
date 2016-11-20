@@ -1,4 +1,4 @@
-var bastard = require('bastard')
+var bastard = require('bastard')(2)
 var test = require('tape')
 
 test('bastard', function (t) {

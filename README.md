@@ -37,7 +37,7 @@ var choice = stupid(choosen) // Some available random choice.
 
 ### smart
 
-> It understands when it can win, and so it choses otherwise it behaves like a [bastard](#bastard).
+> It understands when it can win, and tryes to block other players.
 
 ```javascript
 var smart = require('tris3d-ai').smart
@@ -48,10 +48,11 @@ smart([0, 10, 11, 1, 5, 6]) // 2
 
 ### bastard
 
-> It tries to block other players, otherwise it behaves like a [stupid](#stupid).
+> It is like a [smart](#smart) but it tryes to block a target player first.
 
 ```javascript
-var bastard = require('tris3d-ai').bastard
+var targetPlayer = 1 // Player 2 will be the target.
+var bastard = require('tris3d-ai').bastard(targetPlayer)
 
 // Here it blocks first player's winning combination.
 bastard([0, 10, 11, 1]) // 2

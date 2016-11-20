@@ -1,5 +1,5 @@
 var tris3d = require('tris3d')
-var bastard = require('./bastard')
+var stupid = require('./stupid')
 
 function smart (choosen) {
   if (choosen.length === 27) {
@@ -30,8 +30,8 @@ function smart (choosen) {
     }
   }
 
-  // If no winning choice is found, behave like a bastard AI.
-  return bastard(choosen)
+  // If no winning choice is found, behave like a stupid AI.
+  return stupid(choosen)
 }
 
 module.exports = smart
