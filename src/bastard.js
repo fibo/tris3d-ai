@@ -1,35 +1,38 @@
-var tris3d = require('tris3d')
-var smart = require('./smart')
+const tris3d = require('tris3d')
+
+const tryToBlock = require('./tryToBlock')
+const stupid = require('./stupid')
+const victoryIsMine = require('./victoryIsMine')
 
 function bastard (targetPlayer) {
   return function (choosen) {
     if (choosen.length === 27) {
+      // This is a *bastard* ai, error message is more aggressive.
       throw new Error('Are you stupid? There is no choice available.')
     }
 
-    var targetPlayerChoices = []
+    const myPlayerIndex = choosen.length % 3
 
-    for (var n = targetPlayer; n < choosen.length; n += 3) {
-      targetPlayerChoices.push(choosen[n])
+    if (myPlayerIndex === targetPlayer) {
+      // This is a *bastard* ai, it will get angry if you ask it to target itself.
+      throw new Error('You bastard! I will not play against my self.')
     }
 
-    for (var k = 1; k < targetPlayerChoices.length; k++) {
-      for (var j = 0; j < k; j++) {
-        for (var i = 0; i < 27; i++) {
-          var coords0 = tris3d.coordinatesOfIndex(i)
-          var coords1 = tris3d.coordinatesOfIndex(targetPlayerChoices[j])
-          var coords2 = tris3d.coordinatesOfIndex(targetPlayerChoices[k])
+    // First of all try to win.
+    const yeah = victoryIsMine(choosen)
+    if (yeah) return yeah
 
-          var isAvailable = (choosen.indexOf(i) === -1)
-          var isWinningChoice = tris3d.isTris(coords0, coords1, coords2)
+    // Then try to block targetPlayer.
+    const ahahah = tryToBlock(targetPlayer, choosen)
+    if (ahahah) return ahahah
 
-          if (isWinningChoice && isAvailable) return i
-        }
-      }
-    }
+    // Then try to block theOtherPlayer.
+    const theOtherPlayer = tris3d.semiSumInZ3xZ3xZ3(myPlayerIndex, targetPlayer)
+    const muahaha = tryToBlock(theOtherPlayer, choosen)
+    if (muahaha) return muahaha
 
-    // If no choice is found, behave like a smart AI.
-    return smart(choosen)
+    // If no winning choice is found, behave like a stupid AI.
+    return stupid(choosen)
   }
 }
 

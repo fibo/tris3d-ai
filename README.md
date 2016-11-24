@@ -50,13 +50,26 @@ smart([0, 10, 11, 1, 5, 6]) // 2
 
 > It is like a [smart](#smart) but it tryes to block a target player first.
 
-```javascript
-var targetPlayer = 1 // Player 2 will be the target.
-var bastard = require('tris3d-ai').bastard(targetPlayer)
+Here it blocks player 1.
 
-// Here it blocks first player's winning combination.
-bastard([0, 10, 11, 1]) // 2
+```javascript
+const targetPlayer = 0 // Player 1 will be the target.
+const bastard = require('tris3d-ai').bastard(targetPlayer)
+
+bastard([0, 7, 11, 1]) // 2
 ```
+
+Here it cannot block its target, but it will block next player.
+
+```javascript
+const targetPlayer = 1 // Player 2 will be the target.
+const bastard = require('tris3d-ai').bastard(targetPlayer)
+
+bastard([10, 0, 7, 4, 1, 8]) // 2
+```
+
+It is a bastard ai, error messages will be aggressive: you have been warned.
+In particular, it complains if you ask it to target itself.
 
 ## License
 
