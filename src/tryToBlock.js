@@ -30,9 +30,6 @@ function tryToBlock (targetPlayer, choosen) {
       }
     }
   }
-
-  // If there is no choice can block targetPlayer...
-  return
 }
 
 module.exports = tryToBlock

@@ -32,9 +32,6 @@ function victoryIsMine (choosen) {
       }
     }
   }
-
-  // If there is no winning choice...
-  return
 }
 
 module.exports = victoryIsMine
